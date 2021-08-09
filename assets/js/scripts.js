@@ -3,6 +3,7 @@ var card = $(".inner");
 const startButton = document.getElementById('start-btn');
 const nextButton = document.getElementById('next-btn');
 const questionContainerElement = document.getElementById('question-container');
+const responseContainerEl = document.getElementById('response-container');
 const questionElement = document.getElementById('question');
 const answerButtonsElement = document.getElementById('answer-buttons');
 const modalEl = document.getElementById("mymodal");
@@ -29,6 +30,7 @@ var games_played = 0;
 
 
 gameContainerEl.classList.add('hide');
+responseContainerEl.classList.add("hide");
 correctAnswers.textContent = "Correct answers : " + correct_answers; 
 incorrectAnswers.textContent = "Incorrect answers : " + incorrect_answers; 
 
@@ -42,10 +44,12 @@ var fetch_questions = (category,difficulty,amount) => {
     setNextQuestion(data.results);
     global_data = data.results;
     gameContainerEl.classList.remove('hide'); 
+    responseContainerEl.classList.remove('hide');
   });
 };
 
-// alert($(window).width());
+//  alert($(window).width());
+//  alert($(window).height());
 
 function startGame() {
   player = document.getElementById("player_name").value; //get player name
